@@ -1,0 +1,127 @@
+.node__maze {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: black;
+    background-color: rgba(119, 139, 235, 0.5);
+    cursor: pointer;
+}
+
+.node__maze--start::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ff0;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.node__maze--finish {
+    border-radius: 5px;
+    background: #0be881;
+    transform: scale(0);
+    animation-name: nodeMaze;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node__maze--shortest::before {
+    content: '';
+    color: white;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    animation-name: nodeMazeShortest;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node__maze--wall {
+    background-color: rgba(48, 57, 82, 1.0);
+}
+
+.node--visited {
+    background-color: blueviolet;
+}
+
+.node__text, .node__text--hide {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    transform: scale(0);
+    text-align: center;
+    font-size: 0.7em;
+    padding: 5px;
+}
+
+.node__text {
+    animation-name: textAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.3;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.node__text--hide {
+    transform: scale(0);
+}
+
+@keyframes nodeMazeShortest {
+    0% {
+        transform: scale(0.3);
+        background-color: rgba(0, 0, 66, 0.75);
+        border-radius: 100%;
+    }
+    50% {
+        background-color: rgba(87, 75, 144, 0.75);
+    }
+    75% {
+        transform: scale(1.1);
+        background-color: rgba(248, 165, 194, 0.75);
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgba(120, 111, 166, 0.75);
+    }
+}
+
+@keyframes nodeMaze {
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    0% {
+        transform: scale(0);
+    }
+}
+
+@keyframes textAnimation {
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    0% {
+        transform: scale(0);
+    }
+}

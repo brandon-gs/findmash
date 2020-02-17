@@ -1,0 +1,48 @@
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    text-align: center;
+    max-height: 70px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.info svg{
+    margin: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.info--start{
+    background-color: rgba(5, 196, 107,0.3);
+}
+
+.info--finish{
+    background-color: rgba(255, 63, 52,0.2);
+}
+
+.info--wall{
+    background-color: rgba(19, 15, 64,0.2);
+}
+
+.info--animate{
+    animation-name: infoMessage;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes infoMessage{
+    to{
+        transform: scale(1);
+    }
+    from {
+        transform: scale(0.3);
+    }
+}

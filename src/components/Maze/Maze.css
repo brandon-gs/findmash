@@ -1,0 +1,47 @@
+.maze {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    transform: translateX(200vw);
+    animation-name: mazeComponent;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: .2;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    border-bottom: 10px solid #3498db;
+}
+
+.maze__message {
+    background-color: rgba(189, 195, 199, 0.3);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.maze__grid {
+    display: grid;
+    grid-template-rows: repeat(8, 40px);
+}
+
+.node__row {
+    margin: 0;
+}
+
+@keyframes mazeComponent {
+    0% {
+        transform: translateX(200vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

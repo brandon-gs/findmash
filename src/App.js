@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Pathfinding from "./components/Pathfinding/Pathfinding.jsx";
+import Maze from "./components/Maze/Maze.jsx";
+import BinarySearch from "./components/BinarySearch/BinarySearch.jsx";
+import scroll from './scroll';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="menu">
+        <button className="menu__btn" onClick={() => scroll("pathfinding")}>Pathfinding</button>
+        <button className="menu__btn" onClick={() => scroll("maze")}>Maze</button>
+      </section>
+      <div style={{height: '60px', width: '100vw'}}></div>
+      <Pathfinding></Pathfinding>
+      <Maze></Maze>
     </div>
   );
 }

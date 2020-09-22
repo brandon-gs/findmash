@@ -41,7 +41,7 @@ export default () => {
       setStartRow(row);
       setStartCol(col);
       setCurrentNodeType("finish"); // Next node type
-    } else if (currentNodeType === "finish" && (row !== startRow && col !== startCol)) {
+    } else if (currentNodeType === "finish" && (row !== startRow || col !== startCol)) {
       setFinishRow(row);
       setFinishCol(col);
       setCurrentNodeType("wall"); // next node type

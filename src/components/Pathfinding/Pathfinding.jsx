@@ -3,9 +3,9 @@ import Node from "./Node/Node.jsx";
 import Alert from "./Alert/Alert.jsx";
 import {
   dijkstra,
-  getNodesInShortestPathOrder
+  getNodesInShortestPathOrder,
 } from "../../algorithms/dijkstra";
-import { getGridTemplateColumns } from '../../helpers';
+import { getGridTemplateColumns } from "../../helpers";
 import "./Pathfinding.css";
 
 /* DEFAULT VALUES
@@ -41,7 +41,10 @@ export default () => {
       setStartRow(row);
       setStartCol(col);
       setCurrentNodeType("finish"); // Next node type
-    } else if (currentNodeType === "finish" && (row !== startRow || col !== startCol)) {
+    } else if (
+      currentNodeType === "finish" &&
+      (row !== startRow || col !== startCol)
+    ) {
       setFinishRow(row);
       setFinishCol(col);
       setCurrentNodeType("wall"); // next node type
@@ -54,7 +57,7 @@ export default () => {
   /* 
   Restart values from nodes, except start and finish nodes
   */
-  const newRoute = nodes => {
+  const newRoute = (nodes) => {
     setRunning(true);
     // *** Reset clases of visited nodes ***
     const visitedNodes = document.querySelectorAll(".node--visited");
@@ -70,13 +73,13 @@ export default () => {
 
     // *** Change values of new walls in the nodes **
     const newNodes = nodes.slice();
-    return newNodes.map(row => {
-      return row.map(node => {
+    return newNodes.map((row) => {
+      return row.map((node) => {
         return (node = {
           ...node,
           distance: Infinity,
           isVisited: false,
-          previousNode: null
+          previousNode: null,
         });
       });
     });
@@ -105,7 +108,7 @@ export default () => {
     }
   };
 
-  const animateShortestPath = nodesInShortestPathOrder => {
+  const animateShortestPath = (nodesInShortestPathOrder) => {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       // eslint-disable-next-line no-loop-func
       setTimeout(() => {
@@ -137,7 +140,7 @@ export default () => {
     setMaxCol(Math.floor((document.body.clientWidth - 30) / 30) - 2);
   });
 
-  const resetNodes = nodes => {
+  const resetNodes = (nodes) => {
     const newNodes = nodes.map((row, rowIdx) => {
       return row.map((node, nodeIdx) => {
         node.isStart = false;
@@ -159,7 +162,7 @@ export default () => {
     return newNodes;
   };
 
-  const createNodes = maxCol => {
+  const createNodes = (maxCol) => {
     const nodes = [];
     for (let row = 0; row < 10; row++) {
       const currentRow = [];
@@ -179,7 +182,7 @@ export default () => {
       distance: Infinity,
       isVisited: false,
       isWall: false,
-      previousNode: null
+      previousNode: null,
     };
   };
 
@@ -273,7 +276,7 @@ const getNewNodesWithWallToggled = (board, row, col) => {
   const node = newBoard[row][col];
   const newNode = {
     ...node,
-    isWall: !node.isWall
+    isWall: !node.isWall,
   };
   newBoard[row][col] = newBoard[row][col].isFinish
     ? node

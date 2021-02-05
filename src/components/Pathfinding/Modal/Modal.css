@@ -19,8 +19,7 @@
   border: 1px solid #888;
   max-width: 500px;
   width: 90%;
-  height: 480px;
-  max-height: 550px;
+  height: 550px;
 }
 
 .modal-video {
@@ -79,36 +78,20 @@
   border: 1px solid #003da4;
 }
 
-@media (min-width: 400px) {
+@media screen and (max-width: 531px) {
   .modal-content {
-    height: 500px;
+    height: 580px;
   }
 }
 
-@media (min-width: 430px) {
+@media screen and (max-width: 358px) {
   .modal-content {
-    height: 520px;
+    height: 610px;
   }
 }
 
-@media (min-width: 470px) {
+@media screen and (max-width: 320px) {
   .modal-content {
-    height: 550px;
-  }
-}
-
-@media (min-width: 500px) {
-  .modal-content {
-    height: 550px;
-    max-height: 550px;
-  }
-
-  .modal-content-head {
-  }
-
-  .modal-content-body {
-  }
-
-  .modal-content-footer {
+    height: 640px;
   }
 }

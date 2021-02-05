@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Modal.css";
 
 export default function Modal() {
   const [show, setShow] = useState(true);
+
+  /** This useEffect allow close the modal when key esc or enter is pressed */
+  useEffect(() => {
+    const detectKeyPressed = () => {
+      const KEYS_TO_CLOSE = ["Escape", "Enter"];
+      window.onkeydown = (event) => {
+        const someKeyPressed = KEYS_TO_CLOSE.includes(event.key);
+        if (someKeyPressed) {
+          handleClose();
+        }
+      };
+    };
+    detectKeyPressed();
+  }, []);
 
   const handleClose = () => {
     setShow(false);
@@ -20,10 +34,14 @@ export default function Modal() {
               This short tutorial will walk you through the use of this
               application.
             </p>
-            <video controls className="modal-video">
-              <source src="tutorial.mp4" height="450" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe
+              title="pathfinding tutorial"
+              src="https://www.youtube.com/embed/vZAYA2lzNQg"
+              width="100%"
+              height="340"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
           <div className="modal-content-footer">
             <button className="modal-content-button" onClick={handleClose}>
